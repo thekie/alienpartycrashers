@@ -2,7 +2,6 @@
 using System.Collections;
 
 [RequireComponent (typeof (Rigidbody))]
-[RequireComponent (typeof (CapsuleCollider))]
 
 public class Movement : MonoBehaviour {
 
