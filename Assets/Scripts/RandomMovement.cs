@@ -12,7 +12,8 @@ public class RandomMovement : MonoBehaviour {
 		body = GetComponent<Rigidbody> ();
 	}
 
-	void Update () {
+	void FixedUpdate () {
+		/*
 		float current = Time.time;
 		if (current > action) {
 			if (moving) {
@@ -23,5 +24,8 @@ public class RandomMovement : MonoBehaviour {
 			action = current + 1.0f;
 			moving = !moving;
 		}
+		*/
+		body.AddRelativeForce (new Vector3 (7, 0, 0));
+		body.AddRelativeTorque (new Vector3 (0, Random.Range (-1, 2), 0));
 	}
 }
