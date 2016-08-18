@@ -52,6 +52,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   funkMeter: 0
-  funkingClose: 5
+  decreaseCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 800
+      value: 300
+      inSlope: 1.208545
+      outSlope: 1.208545
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  maxDistance: 30
+  maxFunk: 900
   emptyBar: {fileID: 10305, guid: 0000000000000000f000000000000000, type: 0}
   fullBar: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
