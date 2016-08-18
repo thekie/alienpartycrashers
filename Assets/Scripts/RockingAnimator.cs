@@ -11,17 +11,15 @@ public class RockingAnimator : MonoBehaviour {
 	private float startTime;
 	private bool rockLeft;
 
-	// Use this for initialization
 	void Start () {
 		startTime = Time.time;
 		rockLeft = false;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		float delta = Time.time - startTime;
 		if (delta > cycleLength) {
-			startTime = delta + startTime + cycleLength;
+			startTime = startTime + cycleLength;
 			if (rockLeft) {
 				tentacleAnimator.anim.SetTrigger ("waltzLeft");
 			} else {
