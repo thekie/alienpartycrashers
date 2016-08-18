@@ -14,25 +14,16 @@ public class TempTentacleAnimScript : MonoBehaviour {
 
     public Material playerMaterial;
 
-    public GameObject funkParticles;   
+    public GameObject funkParticles;
+	public GameObject cube;
+
+	void Start() {
+		playerMaterial = cube.GetComponent<Renderer> ().material;
+		DoFunkyColors (false);
+	}
 
 	void Update () {
-
-        if(funkTimer < 0.1f){
-            isFunking = false;
-            funkTimer = 0.0f;
-
-            DoFunkyColors(false);
-        }
-        else
-        {
-            isFunking = true;
-            funkTimer -= Time.deltaTime;
-
-            DoFunkyColors(true);
-        }
-
-
+		/*
         if(Input.GetKeyUp(KeyCode.Q)){
             anim.SetTrigger("dance1");
             funkTimer = funkCooldownTime;
@@ -70,17 +61,29 @@ public class TempTentacleAnimScript : MonoBehaviour {
         if(Input.GetKeyUp(KeyCode.RightArrow)){
             anim.SetTrigger("waltzRight");
         }
+        */
+
+		if (isFunking) {
+	        if(funkTimer < 0f){
+				funkTimer = funkCooldownTime;
+				anim.SetTrigger ("dance" + Random.Range (1, 6));
+	        } else {
+	            funkTimer -= Time.deltaTime;
+	        }
+		}
 	}
 
-    void DoFunkyColors(bool shouldDoFunkyColors){
+    public void DoFunkyColors(bool shouldDoFunkyColors){
         if(shouldDoFunkyColors){
             playerMaterial.color = rainbowGradient.Evaluate(Time.time % 1);
             funkParticles.SetActive(true);
+			isFunking = true;
         }
         else
         {
             playerMaterial.color = playerDefaultColor;
             funkParticles.SetActive(false);
+			isFunking = false;
         }
     }
 }
