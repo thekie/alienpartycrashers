@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FunkyManager : MonoBehaviour {
 	public float funkMeter;
@@ -11,9 +12,7 @@ public class FunkyManager : MonoBehaviour {
 
 	public float maxDistance = 30.0f;
 	public float maxFunk = 900.0f;
-
-	public Texture2D emptyBar;
-	public Texture2D fullBar;
+	public Image fillerBar;
 
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
@@ -38,7 +37,7 @@ public class FunkyManager : MonoBehaviour {
 		if (funkyPlayers.Count == 0) {
 			return;
 		}
-
+			
 		float distance = 0;
 		int numDistances = 0;
 		for (int n = 0; n < funkyPlayers.Count; n++) {
@@ -61,13 +60,11 @@ public class FunkyManager : MonoBehaviour {
 			SceneManager.LoadScene ("Game");
 		}
 			
-		Debug.Log ("Max Funk: " + funkMeter/maxFunk);
+		Debug.Log ("Normalized Funk: " + funkMeter/maxFunk);
 		Debug.Log ("Funk Increment: " + funkIncrement);
 	}
 
 	void OnGUI() {
-		int value = Mathf.Min (300, Mathf.RoundToInt(funkMeter/maxFunk * 300));
-		GUI.DrawTexture (new Rect (10, 10, 300, 50), emptyBar);
-		GUI.DrawTexture (new Rect (10, 10, value, 50), fullBar);
+		fillerBar.fillAmount = funkMeter/maxFunk;
 	}
 }

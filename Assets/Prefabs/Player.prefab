@@ -1139,7 +1139,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 2
 --- !u!65 &65000013647385138
 BoxCollider:
@@ -1253,7 +1253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 10
-  forceApplied: 0
 --- !u!114 &114000013580286232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1278,11 +1277,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d014970d7021d402197438246afd4d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitCenter: 0.5
-  waitTangent: 0.5
-  waitDecel: 0.1
-  centerForce: 12
-  tangentForce: 7
+  waitStep: 1
+  waitRotate: 0.59
+  centerForce: 8
+  rotateDegrees: 30
 --- !u!114 &114000013820951180
 MonoBehaviour:
   m_ObjectHideFlags: 1
