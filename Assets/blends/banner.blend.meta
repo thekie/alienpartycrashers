@@ -6,10 +6,19 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: banner
+    100004: banner_001
     400000: //RootNode
+    400002: banner
+    400004: banner_001
     2300000: //RootNode
+    2300002: banner
+    2300004: banner_001
     3300000: //RootNode
+    3300002: banner
+    3300004: banner_001
     4300000: banner
+    4300002: banner_001
     7400000: Default Take
     9500000: //RootNode
   materials:
