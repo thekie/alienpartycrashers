@@ -20,7 +20,7 @@ public class CenterMovement : MonoBehaviour {
 
 	void Start () {
 		body = GetComponent<Rigidbody> ();
-		center = transform.position + Vector3.forward * 0.1f;
+		center = transform.localPosition + Vector3.forward * 0.1f;
 		stage = Stage.Center;
 		start = Time.time;
 		force = Vector3.zero;
@@ -30,7 +30,7 @@ public class CenterMovement : MonoBehaviour {
 		switch (stage) {
 		case Stage.Center:
 			if (Time.time - start > waitTangent) {
-				force = (center - transform.position).normalized * centerForce * (Random.value / 2f + 0.5f);
+				force = (center - transform.localPosition).normalized * centerForce * (Random.value / 2f + 0.5f);
 				stage = Stage.Tangent;
 				start = Time.time;
 				if (notifyStages) {
@@ -40,7 +40,7 @@ public class CenterMovement : MonoBehaviour {
 			break;
 		case Stage.Tangent:
 			if (Time.time - start > waitCenter) {
-				force = Vector3.Cross (center - transform.position, Vector3.up).normalized * tangentForce * (Random.value - 0.5f);
+				force = Vector3.Cross (center - transform.localPosition, Vector3.up).normalized * tangentForce * (Random.value - 0.5f);
 				stage = Stage.Center;
 				start = Time.time;
 				if (notifyStages) {
@@ -49,6 +49,10 @@ public class CenterMovement : MonoBehaviour {
 			}
 			break;
 		}
-		body.AddForce (force);
+		body.AddRelativeForce (force);
+	}
+
+	public void setCenter(Vector3 newCenter) {
+		center = newCenter + Vector3.forward * 0.1f;
 	}
 }
