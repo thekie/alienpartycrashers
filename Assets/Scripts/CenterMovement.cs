@@ -30,7 +30,7 @@ public class CenterMovement : MonoBehaviour {
 		switch (stage) {
 		case Stage.Center:
 			if (Time.time - start > waitTangent) {
-				force = (center - transform.localPosition).normalized * centerForce * (Random.value / 2f + 0.5f);
+				force = (center - transform.localPosition).normalized * centerForce * (Random.value / 4f + 0.75f);
 				stage = Stage.Tangent;
 				start = Time.time;
 				if (notifyStages) {
