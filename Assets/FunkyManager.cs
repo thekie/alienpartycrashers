@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class FunkyManager : MonoBehaviour {
 	float funkMeter;
 	List<GameObject> funkingPlayers = new List<GameObject> ();
+	public float funkingClose = 5.0f;
+	private bool megaFunk = false;
 
 	public Texture2D emptyBar;
 	public Texture2D fullBar;
@@ -34,6 +36,24 @@ public class FunkyManager : MonoBehaviour {
 	void Update () {
 		if (funkingPlayers.Count > 0) {
 			funkMeter += Time.deltaTime;
+			megaFunk = false;
+			float minDistance = float.MaxValue;
+			for (int i = 0; i < funkingPlayers.Count; i++) {
+				for (int j = 0; j < i; j++) {
+					float distance = Vector3.Distance (funkingPlayers[i].transform.position,
+						funkingPlayers[j].transform.position);
+					if (distance < minDistance) {
+						minDistance = distance;
+					}
+				}
+				if (minDistance < funkingClose) {
+					megaFunk = true;
+					break;
+				}
+			}
+			if (megaFunk) {
+				funkMeter += Time.deltaTime;
+			}
 		}
 	}
 
