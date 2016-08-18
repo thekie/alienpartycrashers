@@ -15,8 +15,8 @@ public class RandomMovement : MonoBehaviour {
 	void FixedUpdate () {
 		switch (current) {
 		case Behavior.Random:
-			body.AddRelativeForce (Vector3.forward * 0.5f);
-			body.AddRelativeTorque (new Vector3 (0, Random.Range (-1, 2) * 0.5f, 0));
+			body.AddRelativeForce (Vector3.forward * 10f);
+			body.AddRelativeTorque (new Vector3 (0, Random.Range (-1, 2) * 5f, 0));
 			if (transform.position.sqrMagnitude > maxDistance * maxDistance) {
 				current = Behavior.Center;
 			}
