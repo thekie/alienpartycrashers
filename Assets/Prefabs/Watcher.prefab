@@ -147,7 +147,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f53dba73b98ed45db831cfeba0a31151, type: 2}
+  - {fileID: 2100000, guid: 9b4f53583c84a4c0692d35f02772dc51, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -212,7 +212,7 @@ Light:
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 8
+  m_Intensity: 3.3
   m_Range: 10
   m_SpotAngle: 95
   m_CookieSize: 10

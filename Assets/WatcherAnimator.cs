@@ -11,15 +11,15 @@ public class WatcherAnimator : MonoBehaviour {
 	Color originalColor;
 
 	void Start() {
-		originalColor = bodyMesh.material.color;
+		// originalColor = bodyMesh.material.color;
 	}
 
 	public void DoAlarmed() {
-		bodyMesh.material.color = alertColor;
+		// bodyMesh.material.color = alertColor;
 	}
 
 	public void DoNormal() {
-		bodyMesh.material.color = originalColor;
+		// bodyMesh.material.color = originalColor;
 	}
 
 	public void DoAttackMove() {
