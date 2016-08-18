@@ -14,9 +14,9 @@ public class menu : MonoBehaviour {
         foreach (Image image in images)
         {
             //Reverse order to avoid returns in each line
-            if (image.sprite.name == "05")
+            if (image.sprite.name == "05" || image.sprite.name == "finish" )
             {
-                SceneManager.LoadScene("PartyPooper");
+                SceneManager.LoadScene("Game");
             }
             if (image.sprite.name == "04-04")
             {
