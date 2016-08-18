@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class FunkyManager : MonoBehaviour {
 	float funkMeter;
-	List<int> funkingPlayers = new List<int> ();
+	List<GameObject> funkingPlayers = new List<GameObject> ();
 
 	public Texture2D emptyBar;
 	public Texture2D fullBar;
@@ -14,20 +14,20 @@ public class FunkyManager : MonoBehaviour {
 		FunkyControl.OnFunkStopped += OnFunkStopped;
 	}
 
-	void OnFunkStopped (int playerID) {
-		funkingPlayers.Remove (playerID);
+	void OnFunkStopped (GameObject go) {
+		funkingPlayers.Remove (go);
 	}
 
-	void OnFunkStarted (int playerID) {
+	void OnFunkStarted (GameObject go) {
 		bool found = false;
-		foreach (int player in funkingPlayers) {
-			if (player == playerID) {
+		foreach (GameObject player in funkingPlayers) {
+			if (player == go) {
 				found = true;
 				break;
 			}
 		}
 		if (!found) {
-			funkingPlayers.Add (playerID);
+			funkingPlayers.Add (go);
 		}
 	}
 
