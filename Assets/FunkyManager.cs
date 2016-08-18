@@ -56,13 +56,13 @@ public class FunkyManager : MonoBehaviour {
 				funkMeter += Time.deltaTime;
 			}
 		}
-		if (funkMeter >= 100f) {
+		if (funkMeter >= 20f) {
 			SceneManager.LoadScene ("PartyPooper");
 		}
 	}
 
 	void OnGUI() {
-		int value = Mathf.Min (300, Mathf.RoundToInt(funkMeter * 3));
+		int value = Mathf.Min (300, Mathf.RoundToInt(funkMeter * 5 * 3));
 		GUI.DrawTexture (new Rect (10, 10, 300, 50), emptyBar);
 		GUI.DrawTexture (new Rect (10, 10, value, 50), fullBar);
 	}
