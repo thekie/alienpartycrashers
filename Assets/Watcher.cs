@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent (typeof(MeshCollider))]
 [RequireComponent (typeof(WatcherAnimator))]
@@ -24,20 +25,19 @@ public class Watcher : MonoBehaviour {
 
 	WatcherAnimator watcherAnimator;
 
+	List<FunkyControl> funkyPlayers = new List<FunkyControl>();
+
 	void Start() {
+		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Player");
+
 		watcherAnimator = GetComponent<WatcherAnimator> ();
 		SwitchToSearching ();
-	}
-
-	void OnEnable()
-	{
-		FunkyControl.OnFunkStarted += OnFunkStarted;
-	}
-
-
-	void OnDisable()
-	{
-		FunkyControl.OnFunkStarted -= OnFunkStarted;
+		foreach (GameObject go in gameObjects) {
+			FunkyControl player = go.GetComponent<FunkyControl> ();
+			if (player != null) {
+				funkyPlayers.Add (player);
+			}
+		}
 	}
 
 	void SwitchToAlarmed() {
@@ -112,9 +112,12 @@ public class Watcher : MonoBehaviour {
 		}
 	}
 
-	void OnFunkStarted(GameObject player) {
-		if (IsInSearchRadius (player)) {
-			SwitchToAttack (player);
+	void Update() {
+		foreach (FunkyControl funkyControl in funkyPlayers) {
+			if (funkyControl.isFunky && IsInSearchRadius(funkyControl.gameObject)) {
+				SwitchToAttack (funkyControl.gameObject);
+				break;
+			}
 		}
 	}
 

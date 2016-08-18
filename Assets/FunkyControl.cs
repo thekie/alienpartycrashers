@@ -12,6 +12,8 @@ public class FunkyControl : MonoBehaviour {
 	Player player;
 	string funkButtonIdentifier;
 
+	public bool isFunky;
+
 	void Start () {
 		player = GetComponent<Player>();
 		funkButtonIdentifier = "Player" + player.id + "_Funk";
@@ -20,10 +22,12 @@ public class FunkyControl : MonoBehaviour {
 	void Update () {
 		if (Input.GetButtonDown (funkButtonIdentifier) && OnFunkStarted != null) {
 			OnFunkStarted (gameObject);
+			isFunky = true;
 		}
 
 		if (Input.GetButtonUp (funkButtonIdentifier) && OnFunkStopped != null) {
 			OnFunkStopped (gameObject);
+			isFunky = false;
 		}
 	}
 }
