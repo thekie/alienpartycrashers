@@ -2,68 +2,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FunkyManager : MonoBehaviour {
 	public float funkMeter;
-	List<GameObject> funkingPlayers = new List<GameObject> ();
-	public float funkingClose = 5.0f;
-	private bool megaFunk = false;
+	GameObject[] players;
 
-	public Texture2D emptyBar;
-	public Texture2D fullBar;
+	public AnimationCurve decreaseCurve;
+
+	public float maxDistance = 30.0f;
+	public float maxFunk = 900.0f;
+	public Image fillerBar;
 
 	void Start () {
-		FunkyControl.OnFunkStarted += OnFunkStarted;
-		FunkyControl.OnFunkStopped += OnFunkStopped;
+		players = GameObject.FindGameObjectsWithTag ("Player");
 	}
-
-	void OnFunkStopped (GameObject go) {
-		funkingPlayers.Remove (go);
-	}
-
-	void OnFunkStarted (GameObject go) {
-		bool found = false;
-		foreach (GameObject player in funkingPlayers) {
-			if (player == go) {
-				found = true;
-				break;
-			}
-		}
-		if (!found) {
-			funkingPlayers.Add (go);
-		}
-	}
-
+		
 	void Update () {
-		if (funkingPlayers.Count > 0) {
-			funkMeter += Time.deltaTime;
-			megaFunk = false;
-			float minDistance = float.MaxValue;
-			for (int i = 0; i < funkingPlayers.Count; i++) {
-				for (int j = 0; j < i; j++) {
-					float distance = Vector3.Distance (funkingPlayers[i].transform.position,
-						funkingPlayers[j].transform.position);
-					if (distance < minDistance) {
-						minDistance = distance;
-					}
-				}
-				if (minDistance < funkingClose) {
-					megaFunk = true;
-					break;
-				}
-			}
-			if (megaFunk) {
-				funkMeter += Time.deltaTime;
+		funkMeter -= Mathf.Max (Time.deltaTime * decreaseCurve.Evaluate (funkMeter), 0);
+		funkMeter = Mathf.Max (funkMeter, 0);
+
+		Debug.Log ("Funk Meter: " + funkMeter);
+		Debug.Log ("Funk Decrement: " + decreaseCurve.Evaluate (funkMeter));
+
+		List<GameObject> funkyPlayers = new List<GameObject> ();
+
+		foreach (GameObject go in players) {
+			FunkyControl funkyControl = go.GetComponent<FunkyControl> ();
+			if (funkyControl.isFunky) {
+				funkyPlayers.Add (funkyControl.gameObject);
 			}
 		}
-		if (funkMeter >= 20f) {
-			SceneManager.LoadScene ("PartyPooper");
+
+		if (funkyPlayers.Count == 0) {
+			return;
 		}
+			
+		float distance = 0;
+		int numDistances = 0;
+		for (int n = 0; n < funkyPlayers.Count; n++) {
+			for (int m = 0; m<n; m++) {
+				distance += (funkyPlayers [n].transform.position - funkyPlayers [m].transform.position).magnitude;
+				numDistances += 1;
+			}
+		}
+
+		float funkIncrement = 100;
+		if (numDistances > 0) {
+			float avgDistance = distance / numDistances;
+			Debug.Log ("Average Dist: " + avgDistance);
+			funkIncrement += (maxDistance - avgDistance) * funkyPlayers.Count;
+		}
+
+		funkMeter += Time.deltaTime * funkIncrement;
+
+		if (funkMeter >= maxFunk) {
+			SceneManager.LoadScene ("Game");
+		}
+			
+		Debug.Log ("Normalized Funk: " + funkMeter/maxFunk);
+		Debug.Log ("Funk Increment: " + funkIncrement);
 	}
 
 	void OnGUI() {
-		int value = Mathf.Min (300, Mathf.RoundToInt(funkMeter * 5 * 3));
-		GUI.DrawTexture (new Rect (10, 10, 300, 50), emptyBar);
-		GUI.DrawTexture (new Rect (10, 10, value, 50), fullBar);
+		fillerBar.fillAmount = funkMeter/maxFunk;
 	}
 }
