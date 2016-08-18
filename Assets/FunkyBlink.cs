@@ -26,6 +26,7 @@ public class FunkyBlink : MonoBehaviour {
 	void OnDisable()
 	{
 		FunkyControl.OnFunkStarted -= OnFunkStarted;
+		FunkyControl.OnFunkStopped -= OnFunkStopped;
 	}
 		
 	void OnFunkStarted(GameObject gameObject)
