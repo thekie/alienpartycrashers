@@ -47,7 +47,6 @@ public class FunkyBlink : MonoBehaviour {
 				meshRenderer.material.color = originalColor;
 			} else {
 				tentacleAnimator.DoFunkyColors (false);
-				Debug.Log ("DoFunkyColors false");
 			}
 		}
 	}
