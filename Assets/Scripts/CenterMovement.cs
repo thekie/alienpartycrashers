@@ -19,6 +19,7 @@ public class CenterMovement : MonoBehaviour {
 	public float centerForce = 25f;
 	public float tangentForce = 10f;
 	private Vector3 force;
+	public TempTentacleAnimScript tentacleAnimator;
 
 	void Start () {
 		body = GetComponent<Rigidbody> ();
@@ -51,9 +52,15 @@ public class CenterMovement : MonoBehaviour {
 				if (prevStage == Stage.Tangent) {
 					force = (center - transform.localPosition).normalized * centerForce * (Random.value / 4f + 0.75f);
 					stage = Stage.Center;
+					if (tentacleAnimator != null) {
+						tentacleAnimator.anim.SetTrigger ("waltzLeft");
+					}
 				} else {
 					force = Vector3.Cross (center - transform.localPosition, Vector3.up).normalized * tangentForce * (Random.value - 0.5f);
 					stage = Stage.Tangent;
+					if (tentacleAnimator != null) {
+						tentacleAnimator.anim.SetTrigger ("waltzRight");
+					}
 				}
 				start = Time.time;
 				prevStage = Stage.Wait;
