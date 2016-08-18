@@ -60,7 +60,7 @@ public class CenterMovement : MonoBehaviour {
 			}
 			break;
 		}
-		body.AddRelativeForce (force);
+		body.AddForce (force);
 	}
 
 	public void setCenter(Vector3 newCenter) {
