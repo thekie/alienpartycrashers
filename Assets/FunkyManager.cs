@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class FunkyManager : MonoBehaviour {
 	float funkMeter;
@@ -55,10 +56,13 @@ public class FunkyManager : MonoBehaviour {
 				funkMeter += Time.deltaTime;
 			}
 		}
+		if (funkMeter >= 100f) {
+			SceneManager.LoadScene ("PartyPooper");
+		}
 	}
 
 	void OnGUI() {
-		int value = Mathf.Min (300, Mathf.RoundToInt(funkMeter * 6));
+		int value = Mathf.Min (300, Mathf.RoundToInt(funkMeter * 3));
 		GUI.DrawTexture (new Rect (10, 10, 300, 50), emptyBar);
 		GUI.DrawTexture (new Rect (10, 10, value, 50), fullBar);
 	}
