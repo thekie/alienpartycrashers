@@ -7,6 +7,7 @@ public class FunkyBlink : MonoBehaviour {
 
 	MeshRenderer meshRenderer;
 	Color originalColor;
+	public TempTentacleAnimScript tentacleAnimator;
 
 	public Color funkyColor = Color.red;
 
@@ -32,14 +33,22 @@ public class FunkyBlink : MonoBehaviour {
 	void OnFunkStarted(GameObject gameObject)
 	{
 		if (gameObject == this.gameObject) {
-			meshRenderer.material.color = funkyColor;
+			if (tentacleAnimator == null) {
+				meshRenderer.material.color = funkyColor;
+			} else {
+				tentacleAnimator.DoFunkyColors (true);
+			}
 		}
 	}
 
 	void OnFunkStopped(GameObject gameObject)
 	{
 		if (gameObject == this.gameObject) {
-			meshRenderer.material.color = originalColor;
+			if (tentacleAnimator == null) {
+				meshRenderer.material.color = originalColor;
+			} else {
+				tentacleAnimator.DoFunkyColors (false);
+			}
 		}
 	}
 }
