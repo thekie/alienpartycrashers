@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class FunkyManager : MonoBehaviour {
-	float funkMeter;
+	public float funkMeter;
 	List<GameObject> funkingPlayers = new List<GameObject> ();
 	public float funkingClose = 5.0f;
 	private bool megaFunk = false;

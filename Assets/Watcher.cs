@@ -18,6 +18,8 @@ public class Watcher : MonoBehaviour {
 	public float explosionForce = 100.0f;
 	public float explosionRadius = 4.0f;
 
+	public FunkyManager funkManager;
+
 	public AnimationCurve animationCurve;
 
 	WatcherAnimator watcherAnimator;
@@ -75,7 +77,7 @@ public class Watcher : MonoBehaviour {
 		while (currentState == State.Attack) {
 			yield return new WaitForSeconds (attackDelay);
 			if (IsInSearchRadius(gameObject)) {
-				// Notify funk meter
+				funkManager.funkMeter = 0.0f;
 				watcherAnimator.DoAttackMove ();
 				yield return new WaitForSeconds (watcherAnimator.attackDuration*0.05f);
 
