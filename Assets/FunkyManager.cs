@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FunkyManager : MonoBehaviour {
 	public float funkMeter;
@@ -10,8 +11,7 @@ public class FunkyManager : MonoBehaviour {
 	public float funkingClose = 5.0f;
 	private bool megaFunk = false;
 
-	public Texture2D emptyBar;
-	public Texture2D fullBar;
+	public Image fillerBar;
 
 	void Start () {
 		FunkyControl.OnFunkStarted += OnFunkStarted;
@@ -63,8 +63,6 @@ public class FunkyManager : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		int value = Mathf.Min (300, Mathf.RoundToInt(funkMeter * 300));
-		GUI.DrawTexture (new Rect (10, 10, 300, 50), emptyBar);
-		GUI.DrawTexture (new Rect (10, 10, value, 50), fullBar);
+		fillerBar.fillAmount = funkMeter;
 	}
 }
