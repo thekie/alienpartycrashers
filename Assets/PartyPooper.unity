@@ -129,6 +129,25 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010795496356, guid: 05a3e62e686c4480c888db97116c8b40, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013796908078, guid: 05a3e62e686c4480c888db97116c8b40,
+        type: 2}
+      propertyPath: waitRotate
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013796908078, guid: 05a3e62e686c4480c888db97116c8b40,
+        type: 2}
+      propertyPath: centerForce
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54000012812591664, guid: 05a3e62e686c4480c888db97116c8b40,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05a3e62e686c4480c888db97116c8b40, type: 2}
   m_IsPrefabParent: 0
@@ -622,6 +641,11 @@ Prefab:
     - target: {fileID: 4000012490808576, guid: b03b0afe8f59c4243bb5fc812e772ed2, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011983728612, guid: b03b0afe8f59c4243bb5fc812e772ed2,
+        type: 2}
+      propertyPath: numActors
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b03b0afe8f59c4243bb5fc812e772ed2, type: 2}

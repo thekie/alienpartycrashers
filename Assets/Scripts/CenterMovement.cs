@@ -4,67 +4,78 @@ using System.Collections;
 public class CenterMovement : MonoBehaviour {
 	private enum Stage
 	{
-		Center,
-		Tangent,
-		Wait
+		StepLeft,
+		Wait,
+		StepRight,
+		Rotate
 	};
 	private Rigidbody body;
-	private Vector3 center;
 	private Stage stage;
-	private Stage prevStage;
+
 	private float start;
-	public float waitCenter = 1.0f;
-	public float waitTangent = 0.5f;
-	public float waitDecel = 0.09f;
+
+	public float waitStep = 1.0f;
+	public float waitRotate = 1.0f;
+
 	public float centerForce = 25f;
-	public float tangentForce = 10f;
+	public float rotateDegrees = 30;
+
 	private Vector3 force;
+	private float startRotation;
+	private float targetRotation;
 
 	void Start () {
 		body = GetComponent<Rigidbody> ();
-		center = transform.localPosition + Vector3.forward * 0.1f;
-		stage = Stage.Center;
+		stage = Stage.StepLeft;
 		start = Time.time;
-		force = Vector3.zero;
+		force = Vector3.left * centerForce;
 	}
 
 	void FixedUpdate () {
 		float current = Time.time;
 		switch (stage) {
-		case Stage.Center:
-			if (current - start > waitCenter) {
-				prevStage = Stage.Center;
+		case Stage.StepLeft:
+			if (current - start > waitStep) {
 				stage = Stage.Wait;
-				start = start + waitCenter;
-				force = Vector3.zero;
-			}
-			break;
-		case Stage.Tangent:
-			if (current - start > waitTangent) {
-				prevStage = Stage.Tangent;
-				stage = Stage.Wait;
-				start = start + waitTangent;
-				force = Vector3.zero;
+				start = start + waitStep;
+				force = -force;
+			} else {
+				body.AddRelativeForce (force);
 			}
 			break;
 		case Stage.Wait:
-			if (current - start > waitDecel) {
-				if (prevStage == Stage.Tangent) {
-					force = (center - transform.localPosition).normalized * centerForce * (Random.value / 4f + 0.75f);
-					stage = Stage.Center;
-				} else {
-					force = Vector3.Cross (center - transform.localPosition, Vector3.up).normalized * tangentForce * (Random.value - 0.5f);
-					stage = Stage.Tangent;
+			if (current - start > waitRotate) {
+				stage = Stage.StepRight;
+				start = start + waitRotate;
+			}
+			break;
+		case Stage.StepRight:
+			if (current - start > waitStep) {
+				stage = Stage.Rotate;
+				start = start + waitStep;
+				force = Vector3.zero;
+				Vector3 direction = transform.TransformDirection (Vector3.forward);
+				startRotation = Vector3.Angle (Vector3.forward, direction);
+				if (Vector3.Cross (Vector3.forward, direction).y < 0) {
+					startRotation = 360 - startRotation;
 				}
-				start = start + waitDecel;
-				prevStage = Stage.Wait;
+				targetRotation = startRotation + (Random.Range (0, 2) == 0 ? -rotateDegrees : rotateDegrees);
+			} else {
+				body.AddRelativeForce (force);
+			}
+			break;
+		case Stage.Rotate:
+			if (current - start > waitRotate) {
+				transform.rotation = Quaternion.AngleAxis (targetRotation, Vector3.up);
+				stage = Stage.StepLeft;
+				force = Vector3.left * centerForce;
+				start = start + waitRotate;
+			} else {
+				float currentRotation = (targetRotation - startRotation) * (current - start) / waitRotate + startRotation;
+				transform.rotation = Quaternion.AngleAxis (currentRotation, Vector3.up);
 			}
 			break;
 		}
-		body.AddForce (force);
 	}
 
-	public void setCenter(Vector3 newCenter) {
-		center = newCenter + Vector3.forward * 0.1f;
-	}
 }

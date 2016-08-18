@@ -104,6 +104,7 @@ GameObject:
   - 114: {fileID: 114000010123620682}
   - 114: {fileID: 114000012444100484}
   - 114: {fileID: 114000013905074372}
+  - 114: {fileID: 114000013872361952}
   m_Layer: 0
   m_Name: Mover
   m_TagString: Untagged
@@ -1319,11 +1320,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d014970d7021d402197438246afd4d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitCenter: 1.5
-  waitTangent: 0.01
-  waitDecel: 0.04
+  waitStep: 1
+  waitRotate: 0.59
   centerForce: 8
-  tangentForce: 6
+  rotateDegrees: 30
 --- !u!114 &114000012444100484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1396,6 +1396,17 @@ MonoBehaviour:
   playerMaterial: {fileID: 2100000, guid: a4d2a888df63e43d18940a133036631f, type: 2}
   funkParticles: {fileID: 1000014043909374}
   cube: {fileID: 1000014014105768}
+--- !u!114 &114000013872361952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010399430612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f807a9634d174c61a51666242d1f3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013905074372
 MonoBehaviour:
   m_ObjectHideFlags: 1

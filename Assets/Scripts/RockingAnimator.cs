@@ -13,7 +13,7 @@ public class RockingAnimator : MonoBehaviour {
 
 	void Start () {
 		startTime = Time.time;
-		rockLeft = false;
+		rockLeft = true;
 	}
 
 	void Update () {
