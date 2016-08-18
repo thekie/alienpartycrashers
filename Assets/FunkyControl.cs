@@ -5,7 +5,7 @@ using System.Collections;
 
 public class FunkyControl : MonoBehaviour {
 
-	public delegate void FunkAction(int playerID);
+	public delegate void FunkAction(GameObject gameObject);
 	public static event FunkAction OnFunkStarted;
 	public static event FunkAction OnFunkStopped;
 
@@ -19,11 +19,11 @@ public class FunkyControl : MonoBehaviour {
 
 	void Update () {
 		if (Input.GetButtonDown (funkButtonIdentifier) && OnFunkStarted != null) {
-			OnFunkStarted (player.id);
+			OnFunkStarted (gameObject);
 		}
 
 		if (Input.GetButtonUp (funkButtonIdentifier) && OnFunkStopped != null) {
-			OnFunkStopped (player.id);
+			OnFunkStopped (gameObject);
 		}
 	}
 }
