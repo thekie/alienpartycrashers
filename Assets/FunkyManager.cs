@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FunkyManager : MonoBehaviour {
 	public float funkMeter;
+	public float funkingRange = 20f;
 	List<GameObject> funkingPlayers = new List<GameObject> ();
 	public float funkingClose = 5.0f;
 	private bool megaFunk = false;
@@ -36,7 +37,7 @@ public class FunkyManager : MonoBehaviour {
 
 	void Update () {
 		if (funkingPlayers.Count > 0) {
-			funkMeter += Time.deltaTime;
+			funkMeter += Time.deltaTime / funkingRange;
 			megaFunk = false;
 			float minDistance = float.MaxValue;
 			for (int i = 0; i < funkingPlayers.Count; i++) {
@@ -53,16 +54,16 @@ public class FunkyManager : MonoBehaviour {
 				}
 			}
 			if (megaFunk) {
-				funkMeter += Time.deltaTime;
+				funkMeter += Time.deltaTime / funkingRange;
 			}
 		}
-		if (funkMeter >= 20f) {
+		if (funkMeter >= 1f) {
 			SceneManager.LoadScene ("PartyPooper");
 		}
 	}
 
 	void OnGUI() {
-		int value = Mathf.Min (300, Mathf.RoundToInt(funkMeter * 5 * 3));
+		int value = Mathf.Min (300, Mathf.RoundToInt(funkMeter * 300));
 		GUI.DrawTexture (new Rect (10, 10, 300, 50), emptyBar);
 		GUI.DrawTexture (new Rect (10, 10, value, 50), fullBar);
 	}
