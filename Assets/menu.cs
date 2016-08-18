@@ -6,6 +6,6 @@ public class menu : MonoBehaviour {
 
     public void loadmain()
     {
-        SceneManager.LoadScene("main");
+        SceneManager.LoadScene("PartyPooper");
     }
 }
