@@ -2,19 +2,16 @@
 using System.Collections;
 
 [RequireComponent (typeof(MeshRenderer))]
-[RequireComponent (typeof(Player))]
 
 public class FunkyBlink : MonoBehaviour {
 
 	MeshRenderer meshRenderer;
 	Color originalColor;
-	Player player;
 
 	public Color funkyColor = Color.red;
 
 	void Start()
 	{
-		player = gameObject.GetComponent<Player> ();
 		meshRenderer = gameObject.GetComponent<MeshRenderer> ();
 		originalColor = meshRenderer.material.color;
 	}
@@ -31,16 +28,16 @@ public class FunkyBlink : MonoBehaviour {
 		FunkyControl.OnFunkStarted -= OnFunkStarted;
 	}
 		
-	void OnFunkStarted(int playerID)
+	void OnFunkStarted(GameObject gameObject)
 	{
-		if (playerID == player.id) {
+		if (gameObject == this.gameObject) {
 			meshRenderer.material.color = funkyColor;
 		}
 	}
 
-	void OnFunkStopped(int playerID)
+	void OnFunkStopped(GameObject gameObject)
 	{
-		if (playerID == player.id) {
+		if (gameObject == this.gameObject) {
 			meshRenderer.material.color = originalColor;
 		}
 	}
