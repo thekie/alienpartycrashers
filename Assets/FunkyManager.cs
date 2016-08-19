@@ -28,10 +28,11 @@ public class FunkyManager : MonoBehaviour {
 				SceneManager.LoadScene ("Game");
 			}
 		} else {
-			funkMeter -= Mathf.Max (Time.deltaTime * decreaseCurve.Evaluate (funkMeter), 0);
+			funkMeter -= Mathf.Max (Time.deltaTime * 1.9f / 3 * decreaseCurve.Evaluate (funkMeter), 0);
 			funkMeter = Mathf.Max (funkMeter, 0);
 
 			List<GameObject> funkyPlayers = new List<GameObject> ();
+			int totalFunky = 0;
 			List<bool> activePlayers = new List<bool> ();
 			int totalActive = 0;
 
@@ -39,6 +40,9 @@ public class FunkyManager : MonoBehaviour {
 				FunkyControl funkyControl = go.GetComponent<FunkyControl> ();
 				if (funkyControl.isFunky) {
 					funkyPlayers.Add (funkyControl.gameObject);
+					++totalFunky;
+				} else {
+					funkyPlayers.Add (null);
 				}
 				LastActivity lastActivity = go.GetComponent<LastActivity> ();
 				bool active = Time.time - lastActivity.lastActivity < activityThreshold;
@@ -56,16 +60,16 @@ public class FunkyManager : MonoBehaviour {
 				}
 			}
 
-			if (funkyPlayers.Count == 0) {
+			if (totalFunky == 0) {
 				return;
 			}
 				
 			float distance = 0;
 			int numDistances = 0;
 			for (int n = 0; n < funkyPlayers.Count; n++) {
-				if (activePlayers [n]) {
+				if (funkyPlayers[n] != null && activePlayers [n]) {
 					for (int m = 0; m < n; m++) {
-						if (activePlayers [m]) {
+						if (funkyPlayers[m] != null && activePlayers [m]) {
 							distance += (funkyPlayers [n].transform.position - funkyPlayers [m].transform.position).magnitude;
 							numDistances += 1;
 						}
@@ -76,7 +80,11 @@ public class FunkyManager : MonoBehaviour {
 			float funkIncrement = 100;
 			if (numDistances > 0) {
 				float avgDistance = distance / numDistances;
-				funkIncrement += (maxDistance - avgDistance) * totalActive;
+				funkIncrement += (maxDistance - avgDistance) * totalActive *
+					(1f + totalFunky / totalActive) *
+					(1f + Mathf.Max(0, totalFunky - 1) / totalActive) *
+				    (1f + Mathf.Max(0, totalFunky - 2) / totalActive) *
+				    (1f + Mathf.Max(0, totalFunky - 3) / totalActive);
 			}
 
 			funkMeter += Time.deltaTime * funkIncrement;
