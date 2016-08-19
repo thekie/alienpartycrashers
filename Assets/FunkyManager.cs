@@ -17,6 +17,7 @@ public class FunkyManager : MonoBehaviour {
 	public Image[] activityIndicators;
 	public Color activityColor = Color.blue;
 	public Image endOfGame;
+	public FunkEverybody funkEverybody;
 
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
@@ -91,6 +92,7 @@ public class FunkyManager : MonoBehaviour {
 
 			if (funkMeter >= maxFunk) {
 				endOfGame.gameObject.SetActive (true);
+				funkEverybody.StartTheFunk ();
 			}
 		}
 	}

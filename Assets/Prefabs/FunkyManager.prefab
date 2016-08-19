@@ -56,12 +56,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1.8770534
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - time: 800
-      value: 300
+      value: 301.87704
       inSlope: 1.208545
       outSlope: 1.208545
       tangentMode: 0
@@ -77,5 +77,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  activityColor: {r: 0.44117647, g: 0.19463669, b: 0.3221573, a: 1}
+  activityColor: {r: 0.24705884, g: 0.6627451, b: 0.9607844, a: 1}
   endOfGame: {fileID: 0}
+  funkEverybody: {fileID: 0}
