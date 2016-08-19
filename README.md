@@ -1,6 +1,6 @@
-# Tentacle Praty Crashers
+# Tentacle Party Crashers
 
-Tentacle Praty Crashers by team looking for Stefanie
+Tentacle Party Crashers by team looking for Stefanie
 is a game jam game from #IGJAM made in 48h
 
 # Description
