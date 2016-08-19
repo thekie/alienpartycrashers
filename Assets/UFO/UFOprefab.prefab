@@ -22,7 +22,6 @@ GameObject:
   - 33: {fileID: 33000010559981462}
   - 23: {fileID: 23000012913090582}
   - 95: {fileID: 95000011629051384}
-  - 114: {fileID: 114000011302212430}
   m_Layer: 0
   m_Name: UFOprefab
   m_TagString: Untagged
@@ -97,15 +96,3 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000011302212430
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011616197864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f2722333a3064da7abfbd09f713dd2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ufoAnim: {fileID: 95000011629051384}
