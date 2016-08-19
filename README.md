@@ -14,5 +14,5 @@ Player2: Move (T,G,F,H) Funk R
 
 Player3: Move (I,K,J,L) Funk U
 
-Player4: Move (Up,Down,Left,Right) Funk Shift
+Player4: Move (Up,Down,Left,Right) Funk Right Shift
 
