@@ -108,7 +108,7 @@ public class Watcher : MonoBehaviour {
 	}
 
 	IEnumerator Homing(GameObject gameObject) {
-		SongManager.Instance.PlayAlarm();
+//		SongManager.Instance.PlayAlarm();
 		currentHomingTarget = gameObject;
 		Vector3 targetPosition = gameObject.transform.position;
 		targetPosition.y = transform.position.y;

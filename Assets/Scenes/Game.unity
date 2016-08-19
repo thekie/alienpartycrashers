@@ -1504,7 +1504,7 @@ Prefab:
     - target: {fileID: 114000011525697288, guid: a3da2e5bbab234451aaa00863adb61f9,
         type: 2}
       propertyPath: funkMeter
-      value: 900
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011525697288, guid: a3da2e5bbab234451aaa00863adb61f9,
         type: 2}
