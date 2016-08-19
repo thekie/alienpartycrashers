@@ -18,6 +18,7 @@ public class FunkyManager : MonoBehaviour {
 	public Color activityColor = Color.blue;
 	public Image endOfGame;
 	public Text timerText;
+	public Text finalText;
 	private float levelStart;
 
 	void Start () {
@@ -96,6 +97,9 @@ public class FunkyManager : MonoBehaviour {
 
 			if (funkMeter >= maxFunk) {
 				endOfGame.gameObject.SetActive (true);
+				finalText.text = "Your time\n" + timerText.text;
+				finalText.gameObject.SetActive (true);
+				timerText.gameObject.SetActive (false);
 			}
 		}
 	}
