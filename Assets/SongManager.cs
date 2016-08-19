@@ -49,13 +49,14 @@ public class SongManager : MonoBehaviour {
 		FunkSong.Play();
 
 		FunkyControl.OnFunkStarted += (GameObject gameObject) => {
-			Debug.Log("Funk++");
 			funkCount++;
+			Debug.Log("Funk++ " + funkCount);
 		};
 
 		FunkyControl.OnFunkStopped += (GameObject gameObject) => {
-			Debug.Log("Funk--");
-			funkCount--;
+			
+			funkCount = Mathf.Max(0, funkCount-1);
+			Debug.Log("Funk-- " + funkCount);
 		};
 	}
 

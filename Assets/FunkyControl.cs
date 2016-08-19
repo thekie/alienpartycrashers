@@ -40,8 +40,10 @@ public class FunkyControl : MonoBehaviour {
 		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject player in players) {
 			FunkyControl funkyControl = player.GetComponent<FunkyControl> ();
-			funkyControl.isFunky = false;
-			OnFunkStopped (player);
+
+				funkyControl.isFunky = false;
+				OnFunkStopped (player);	
+
 		}
 	}
 }

@@ -1596,6 +1596,11 @@ Prefab:
       propertyPath: finalText
       value: 
       objectReference: {fileID: 1881210605}
+    - target: {fileID: 114000011525697288, guid: a3da2e5bbab234451aaa00863adb61f9,
+        type: 2}
+      propertyPath: funkEverybody
+      value: 
+      objectReference: {fileID: 2009151423}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3da2e5bbab234451aaa00863adb61f9, type: 2}
   m_IsPrefabParent: 0
@@ -1771,10 +1776,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 1000012879556922, guid: b03b0afe8f59c4243bb5fc812e772ed2, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b03b0afe8f59c4243bb5fc812e772ed2, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2009151423 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000014224995008, guid: b03b0afe8f59c4243bb5fc812e772ed2,
+    type: 2}
+  m_PrefabInternal: {fileID: 2009151422}
+  m_Script: {fileID: 11500000, guid: c63d38bc1a9ba433a9eb5c6cbeff3b86, type: 3}
