@@ -4,8 +4,7 @@ Tentacle Praty Crashers by team looking for Stefanie
 is a game jam game from #IGJAM made in 48h
 
 # Description
-You and your friends are on a tentacle party and your job is to crash the party with your funky dance moves.
-So fill the funkymeter by dancing funky and don't get court by the UFO.
+TENTACLE PARTY CRASHERS is a local co-op stealth dancing game where you play HUMANS who snuck into an ALIEN party who have a human themed masquerade ball to crash it with your FUNK. But beware the OVERSEER who will destroy all your funk - try to BLEND IN and remain undetected. Funk TOGETHER to FUNK BETTER until you've reached MAXIMUM FUNK and infect the alien race with your FUNK.
 
 # Input
 Player1: Move (W,S,A,D) Funk Q
