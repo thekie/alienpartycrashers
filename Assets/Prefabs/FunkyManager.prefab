@@ -79,5 +79,6 @@ MonoBehaviour:
   - {fileID: 0}
   activityColor: {r: 0.24705884, g: 0.6627451, b: 0.9607844, a: 1}
   endOfGame: {fileID: 0}
+  funkEverybody: {fileID: 0}
   timerText: {fileID: 0}
   finalText: {fileID: 0}

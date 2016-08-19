@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
@@ -20,6 +20,7 @@ public class FunkyManager : MonoBehaviour {
 	public Text timerText;
 	public Text finalText;
 	private float levelStart;
+	public FunkEverybody funkEverybody;
 
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
@@ -97,6 +98,7 @@ public class FunkyManager : MonoBehaviour {
 
 			if (funkMeter >= maxFunk) {
 				endOfGame.gameObject.SetActive (true);
+				funkEverybody.StartTheFunk ();
 				finalText.text = timerText.text;
 				finalText.gameObject.SetActive (true);
 				timerText.gameObject.SetActive (false);
