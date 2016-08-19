@@ -291,7 +291,7 @@ MonoBehaviour:
   moveRadius: 10
   moveSpeed: 4
   searchRadius: 3
-  attackDelay: 1
+  attackDelay: 2
   explosionForce: 10000
   explosionRadius: 20
   funkManager: {fileID: 0}

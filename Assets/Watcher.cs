@@ -129,7 +129,7 @@ public class Watcher : MonoBehaviour {
 				animator.SetTrigger ("slamDown");
 				watcherAnimator.DoAttackMove ();
 				Vector3 attackPosition = transform.position;
-				attackPosition.y = 0;
+				attackPosition.y = 0.5f;
 				yield return new WaitForSeconds (watcherAnimator.attackDuration * 0.05f);
 				AddExplosionForceForAllPlayersAtPosition (attackPosition);
 				yield return new WaitForSeconds (watcherAnimator.attackDuration);
@@ -137,6 +137,7 @@ public class Watcher : MonoBehaviour {
 				SwitchToSearching ();
 			} else {
 				animator.SetTrigger ("cancelDive");
+				SwitchToSearching ();
 			}
 		}
 	}
