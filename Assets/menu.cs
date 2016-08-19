@@ -5,6 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour {
 
+    void Start()
+    {
+    }
+
+    void Update()
+    {
+        if (
+            Input.GetButtonUp("Player1_Funk") || 
+            Input.GetButtonUp("Player2_Funk") || 
+            Input.GetButtonUp("Player3_Funk") || 
+            Input.GetButtonUp("Player4_Funk") 
+            )
+        {
+            loadmain();
+        }
+    }
+
     public void loadmain()
     {
         GameObject imageobj = GameObject.Find("Image");
@@ -51,6 +68,5 @@ public class menu : MonoBehaviour {
             }
 
         }
-        //
     }
 }
