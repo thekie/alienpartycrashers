@@ -561,6 +561,7 @@ GameObject:
   - 222: {fileID: 1938130389}
   - 114: {fileID: 1938130388}
   - 114: {fileID: 1938130387}
+  - 111: {fileID: 1938130390}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -584,7 +585,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -23, y: 19}
+  m_AnchoredPosition: {x: -21, y: 23}
   m_SizeDelta: {x: 177, y: 142}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1938130387
@@ -672,3 +673,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1938130385}
+--- !u!111 &1938130390
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938130385}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cf541d36ef07b714f8abe57ee3d2a285, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: cf541d36ef07b714f8abe57ee3d2a285, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
