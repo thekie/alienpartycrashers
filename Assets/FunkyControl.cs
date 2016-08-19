@@ -35,4 +35,13 @@ public class FunkyControl : MonoBehaviour {
 			lastActivity.updateLastActivity ();
 		}
 	}
+
+	public static void StopTheFunk() {
+		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+		foreach (GameObject player in players) {
+			FunkyControl funkyControl = player.GetComponent<FunkyControl> ();
+			funkyControl.isFunky = false;
+			OnFunkStopped (player);
+		}
+	}
 }

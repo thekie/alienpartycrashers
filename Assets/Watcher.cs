@@ -140,6 +140,7 @@ public class Watcher : MonoBehaviour {
 				attackPosition.y = 0.5f;
 				yield return new WaitForSeconds (watcherAnimator.attackDuration * 0.05f);
 				AddExplosionForceForAllPlayersAtPosition (attackPosition);
+				FunkyControl.StopTheFunk ();
 				yield return new WaitForSeconds (watcherAnimator.attackDuration);
 				yield return MoveToPosition (homingPosition);
 				SwitchToSearching ();
