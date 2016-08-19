@@ -94,6 +94,7 @@ GameObject:
   - 114: {fileID: 114000010123620682}
   - 114: {fileID: 114000012444100484}
   - 114: {fileID: 114000013905074372}
+  - 114: {fileID: 114000010308606734}
   m_Layer: 0
   m_Name: Mover
   m_TagString: Untagged
@@ -473,7 +474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000013871894290
 GameObject:
   m_ObjectHideFlags: 1
@@ -555,7 +556,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010399430612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.13904567, y: 0.1, z: 4.8655252}
+  m_LocalPosition: {x: 2.7380238, y: 0.1, z: -2.3163536}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1202,7 +1203,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &65000011016699954
 BoxCollider:
@@ -1278,25 +1279,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d014970d7021d402197438246afd4d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitCenter: 0.5
-  waitTangent: 0.5
-  waitDecel: 0.1
-  centerForce: 12
-  tangentForce: 7
+  waitStep: 1
+  waitRotate: 0.59
+  centerForce: 8
+  rotateDegrees: 30
+--- !u!114 &114000010308606734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010399430612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f807a9634d174c61a51666242d1f3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011166509848
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010116991148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79648e3ac4a074d11b108524f0946c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95000011152228708}
   funkCooldownTime: 0.5
+  pointLight: {fileID: 0}
   playerDefaultColor: {r: 0.627451, g: 0.627451, b: 0.627451, a: 1}
+  maskDefaultColor: {r: 0, g: 0, b: 0, a: 0}
   rainbowGradient:
     key0:
       serializedVersion: 2
@@ -1341,8 +1354,10 @@ MonoBehaviour:
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
   playerMaterial: {fileID: 2100000, guid: a4d2a888df63e43d18940a133036631f, type: 2}
+  maskMaterial: {fileID: 0}
   funkParticles: {fileID: 1000013820371836}
   cube: {fileID: 1000013052532246}
+  mask: {fileID: 0}
 --- !u!114 &114000012444100484
 MonoBehaviour:
   m_ObjectHideFlags: 1

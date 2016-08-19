@@ -8,17 +8,22 @@ public class TempTentacleAnimScript : MonoBehaviour {
     private bool isFunking = false;
     private float funkTimer = 0.0f;
     public float funkCooldownTime = 0.5f;
-
+	public Light pointLight;
     public Color playerDefaultColor;
+    public Color maskDefaultColor;
     public Gradient rainbowGradient;
 
     public Material playerMaterial;
+    public Material maskMaterial;
 
     public GameObject funkParticles;
 	public GameObject cube;
+    public GameObject mask;
 
 	void Start() {
-		playerMaterial = cube.GetComponent<Renderer> ().material;
+        playerMaterial = cube.GetComponent<Renderer> ().material;
+        maskMaterial = mask.GetComponent<Renderer> ().material;
+        maskDefaultColor = maskMaterial.color;
 		DoFunkyColors (false);
 	}
 
@@ -64,9 +69,14 @@ public class TempTentacleAnimScript : MonoBehaviour {
         */
 
 		if (isFunking) {
+
+            playerMaterial.color = rainbowGradient.Evaluate(Time.time % 1);
+            maskMaterial.color = rainbowGradient.Evaluate(Time.time % 1);
+			pointLight.color = rainbowGradient.Evaluate(Time.time % 1);
+
 	        if(funkTimer < 0f){
 				funkTimer = funkCooldownTime;
-				anim.SetTrigger ("dance" + Random.Range (1, 6));
+				anim.SetTrigger ("dance" + Random.Range (6, 12));
 	        } else {
 	            funkTimer -= Time.deltaTime;
 	        }
@@ -75,15 +85,18 @@ public class TempTentacleAnimScript : MonoBehaviour {
 
     public void DoFunkyColors(bool shouldDoFunkyColors){
         if(shouldDoFunkyColors){
-            playerMaterial.color = rainbowGradient.Evaluate(Time.time % 1);
+            
             funkParticles.SetActive(true);
 			isFunking = true;
+			pointLight.intensity = 3;
         }
         else
         {
             playerMaterial.color = playerDefaultColor;
+            maskMaterial.color = maskDefaultColor;
             funkParticles.SetActive(false);
 			isFunking = false;
+			pointLight.intensity = 0;
         }
     }
 }
