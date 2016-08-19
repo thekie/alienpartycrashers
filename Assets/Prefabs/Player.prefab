@@ -136,6 +136,7 @@ GameObject:
   - 114: {fileID: 114000013820951180}
   - 114: {fileID: 114000013796908078}
   - 114: {fileID: 114000013580286232}
+  - 114: {fileID: 114000010428119672}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1268,6 +1269,18 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114000010428119672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010795496356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705e87e89f6ba40ce943cdc583c0cfd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastActivity: -10000
 --- !u!114 &114000011085315888
 MonoBehaviour:
   m_ObjectHideFlags: 1

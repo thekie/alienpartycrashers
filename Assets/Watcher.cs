@@ -52,6 +52,9 @@ public class Watcher : MonoBehaviour {
 			return;
 		}
 
+		watcherAnimator.DoAlarmed ();
+		animator.SetTrigger ("alarmed");
+
 		Debug.Log ("SwitchToAlarmed");
 		currentState = State.Alarmed;
 		StopAllCoroutines ();
@@ -70,7 +73,6 @@ public class Watcher : MonoBehaviour {
 		if (player != null) {
 			currentState = State.Attack;
 			StopAllCoroutines ();
-			watcherAnimator.DoAlarmed ();
 			StartCoroutine (Attacking (target));
 		}
 	}
@@ -83,6 +85,7 @@ public class Watcher : MonoBehaviour {
 		currentHomingTarget = null;
 
 		Debug.Log ("SwitchToSearching");
+		animator.SetTrigger ("searching");
 		currentState = State.Searching;
 		StopAllCoroutines ();
 		watcherAnimator.DoNormal ();

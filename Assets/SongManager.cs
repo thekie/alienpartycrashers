@@ -45,13 +45,11 @@ public class SongManager : MonoBehaviour {
 	}
 
 	void PlayFunk() {
-		Debug.Log("Play fff");
 		WaltsSong.mute = true;
 		FunkSong.mute = false;
 	}
 
 	void PlayWalts() {
-		Debug.Log("Play walt");
 		WaltsSong.mute = false;
 		FunkSong.mute = true;
 	}

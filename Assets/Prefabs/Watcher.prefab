@@ -31,7 +31,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1000012175368856
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -85,13 +85,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012175368856}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 1, y: -0, z: -0, w: -0.00000008940697}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.00395462, y: 0.003954623, z: 0.010000008}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 4000013680645214}
-  m_RootOrder: 1
+  m_Father: {fileID: 4000014283901876}
+  m_RootOrder: 0
 --- !u!4 &4000013227023746
 Transform:
   m_ObjectHideFlags: 1
@@ -104,7 +104,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013680645214}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &4000013680645214
 Transform:
   m_ObjectHideFlags: 1
@@ -117,7 +117,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000014283901876}
-  - {fileID: 4000012270399526}
   - {fileID: 4000013227023746}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -130,8 +129,9 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 252.86879, y: 252.86873, z: 99.99997}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_LocalEulerAnglesHint: {x: -89.98021, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000012270399526}
   m_Father: {fileID: 4000013680645214}
   m_RootOrder: 0
 --- !u!23 &23000012732812386
@@ -248,7 +248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230a5af6cb6a644f8b008fea7f0f63de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyMesh: {fileID: 0}
   attackAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -276,6 +275,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   attackDuration: 2
+  windowMaterial: {fileID: 2100000, guid: 3ad827399d74d453ebbee26067d3ce4b, type: 2}
+  spotLight: {fileID: 108000012271852700}
   alertColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &114000013668845060
 MonoBehaviour:
