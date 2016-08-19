@@ -1,10 +1,35 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-//using UnityEditor;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour {
+
+    void loadGame()
+    {
+        SceneManager.LoadScene("Scenes/Game");
+    }
+
+    void Start()
+    {
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonUp("Player1_Funk") || 
+            Input.GetButtonUp("Player2_Funk") || 
+            Input.GetButtonUp("Player3_Funk") || 
+            Input.GetButtonUp("Player4_Funk"))
+        {
+            loadmain();
+        }
+
+        if (Input.GetButtonUp("Space"))
+        {
+            loadGame();
+        }
+    }
+
 
     public void loadmain()
     {
@@ -16,7 +41,7 @@ public class menu : MonoBehaviour {
             //Reverse order to avoid returns in each line
             if (image.sprite.name == "05" || image.sprite.name == "finish" )
             {
-                SceneManager.LoadScene("Game");
+                loadGame();
             }
             if (image.sprite.name == "04-04")
             {
@@ -52,6 +77,5 @@ public class menu : MonoBehaviour {
             }
 
         }
-        //
     }
 }
