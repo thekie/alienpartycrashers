@@ -24,8 +24,8 @@ public class Watcher : MonoBehaviour {
 	public AnimationCurve animationCurve;
 
 	WatcherAnimator watcherAnimator;
-
 	GameObject currentHomingTarget;
+	public Animator animator;
 
 	List<FunkyControl> funkyPlayers = new List<FunkyControl>();
 
@@ -113,17 +113,30 @@ public class Watcher : MonoBehaviour {
 		while (currentState == State.Attack) {
 			Vector3 homingPosition = gameObject.transform.position;
 			homingPosition.y = transform.position.y;
+
+			Vector3 preparePosition = homingPosition;
+			preparePosition.y += 1;
+
 			yield return MoveToPosition (homingPosition);
+
+			animator.SetTrigger ("prepareDive");
+
+			yield return MoveToPosition (preparePosition);
 
 			yield return new WaitForSeconds (attackDelay);
 
-			if (IsInSearchRadius(gameObject)) {
+			if (IsInSearchRadius (gameObject)) {
+				animator.SetTrigger ("slamDown");
 				watcherAnimator.DoAttackMove ();
 				Vector3 attackPosition = transform.position;
-				attackPosition.y = 0;
-				yield return new WaitForSeconds (watcherAnimator.attackDuration*0.05f);
+				attackPosition.y = 0.5f;
+				yield return new WaitForSeconds (watcherAnimator.attackDuration * 0.05f);
 				AddExplosionForceForAllPlayersAtPosition (attackPosition);
 				yield return new WaitForSeconds (watcherAnimator.attackDuration);
+				yield return MoveToPosition (homingPosition);
+				SwitchToSearching ();
+			} else {
+				animator.SetTrigger ("cancelDive");
 				SwitchToSearching ();
 			}
 		}
