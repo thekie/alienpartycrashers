@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class WatcherAnimator : MonoBehaviour {
-	public MeshRenderer bodyMesh;
 
 	public AnimationCurve attackAnimationCurve;
 	public float attackDuration = 2.0f;
