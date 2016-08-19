@@ -97,7 +97,7 @@ public class FunkyManager : MonoBehaviour {
 
 			if (funkMeter >= maxFunk) {
 				endOfGame.gameObject.SetActive (true);
-				finalText.text = "Your time\n" + timerText.text;
+				finalText.text = timerText.text;
 				finalText.gameObject.SetActive (true);
 				timerText.gameObject.SetActive (false);
 			}
