@@ -9,6 +9,10 @@ public class SongManager : MonoBehaviour {
 
 	[SerializeField] AudioSource WaltsSong;
 	[SerializeField] AudioSource FunkSong;
+	[SerializeField] AudioClip[] alarmSounds;
+	[SerializeField] AudioClip attackSound;
+	[SerializeField] AudioSource oneShot;
+
 	int funkCount = 0;
 
 	void Awake() {
@@ -28,6 +32,15 @@ public class SongManager : MonoBehaviour {
 		} else {
 			PlayWalts();
 		}
+	}
+
+	public void PlayAlarm() {
+		AudioClip alarmSound = alarmSounds[Random.Range(0, alarmSounds.Length - 1)];
+		oneShot.PlayOneShot(alarmSound);
+	}
+
+	public void PlayAttack() {
+		oneShot.PlayOneShot(attackSound);
 	}
 
 

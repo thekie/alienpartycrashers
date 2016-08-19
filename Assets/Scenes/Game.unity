@@ -271,7 +271,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 212155116}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -18.2, y: 0, z: 15.2}
+  m_LocalPosition: {x: -18.1, y: 0, z: 14.3}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
   m_Children: []
@@ -338,12 +338,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b477ca5bc6d541cca1ab1addb47bae9, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &268816797 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000011525697288, guid: a3da2e5bbab234451aaa00863adb61f9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1915990320}
-  m_Script: {fileID: 11500000, guid: 29ca9c414bb774f0ca3ac2fcf4b85417, type: 3}
 --- !u!114 &383024545 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000012466433132, guid: 67560e78f1f8f4b05a642798bd956c3d,
@@ -374,7 +368,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429491622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -24.1}
+  m_LocalPosition: {x: 0, y: 0, z: -23.5}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -789,9 +783,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114000013668845060, guid: 956f03ad6dfd74a758243fc5cfbfa204,
         type: 2}
-      propertyPath: funkManager
-      value: 
-      objectReference: {fileID: 268816797}
+      propertyPath: attackDelay
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 956f03ad6dfd74a758243fc5cfbfa204, type: 2}
   m_IsPrefabParent: 0
@@ -1628,7 +1622,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1997401485}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0, z: 24.2}
+  m_LocalPosition: {x: -0.1, y: 0, z: 23.9}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
