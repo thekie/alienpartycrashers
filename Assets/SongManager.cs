@@ -49,10 +49,12 @@ public class SongManager : MonoBehaviour {
 		FunkSong.Play();
 
 		FunkyControl.OnFunkStarted += (GameObject gameObject) => {
+			Debug.Log("Funk++");
 			funkCount++;
 		};
 
 		FunkyControl.OnFunkStopped += (GameObject gameObject) => {
+			Debug.Log("Funk--");
 			funkCount--;
 		};
 	}
@@ -60,10 +62,18 @@ public class SongManager : MonoBehaviour {
 	void PlayFunk() {
 		WaltsSong.mute = true;
 		FunkSong.mute = false;
+
+		if(!FunkSong.isPlaying) {
+			FunkSong.Play();
+		}
 	}
 
 	void PlayWalts() {
 		WaltsSong.mute = false;
 		FunkSong.mute = true;
+
+		if(!WaltsSong.isPlaying) {
+			WaltsSong.Play();
+		}
 	}
 }

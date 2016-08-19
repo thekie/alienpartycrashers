@@ -30,7 +30,7 @@ PlayerSettings:
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: -1
   iosAppInBackgroundBehavior: 0
-  displayResolutionDialog: 1
+  displayResolutionDialog: 0
   iosAllowHTTPDownload: 1
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 1
@@ -174,7 +174,7 @@ PlayerSettings:
     height: 180
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
-  resolutionDialogBanner: {fileID: 2800000, guid: b9f0d24351739466ba22b0cfc45f34cb,
+  resolutionDialogBanner: {fileID: 2800000, guid: 4167c924db6ec5b45850b83b4377fe1f,
     type: 3}
   m_BuildTargetIcons:
   - m_BuildTarget: 

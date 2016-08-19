@@ -536,7 +536,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 76748f84134895043b4b5024f43ac615, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c9bf50f3c995334c9573aa601e82bc2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -561,6 +561,7 @@ GameObject:
   - 222: {fileID: 1938130389}
   - 114: {fileID: 1938130388}
   - 114: {fileID: 1938130387}
+  - 111: {fileID: 1938130390}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -582,11 +583,11 @@ RectTransform:
   - {fileID: 646884884}
   m_Father: {fileID: 685829820}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 88.5, y: -112}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -21, y: 23}
   m_SizeDelta: {x: 177, y: 142}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &1938130387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,3 +673,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1938130385}
+--- !u!111 &1938130390
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938130385}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cf541d36ef07b714f8abe57ee3d2a285, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: cf541d36ef07b714f8abe57ee3d2a285, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
