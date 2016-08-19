@@ -13,10 +13,12 @@ public class FunkyControl : MonoBehaviour {
 	string funkButtonIdentifier;
 
 	public bool isFunky;
+	LastActivity lastActivity;
 
 	void Start () {
 		player = GetComponent<Player>();
 		funkButtonIdentifier = "Player" + player.id + "_Funk";
+		lastActivity = GetComponent<LastActivity> ();
 	}
 
 	void Update () {
@@ -28,6 +30,9 @@ public class FunkyControl : MonoBehaviour {
 		if (Input.GetButtonUp (funkButtonIdentifier) && OnFunkStopped != null) {
 			OnFunkStopped (gameObject);
 			isFunky = false;
+		}
+		if (isFunky && lastActivity != null) {
+			lastActivity.updateLastActivity ();
 		}
 	}
 }

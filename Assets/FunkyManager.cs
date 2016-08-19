@@ -31,14 +31,11 @@ public class FunkyManager : MonoBehaviour {
 
 		foreach (GameObject go in players) {
 			FunkyControl funkyControl = go.GetComponent<FunkyControl> ();
-			float lastActivity = -1e4f;
 			if (funkyControl.isFunky) {
 				funkyPlayers.Add (funkyControl.gameObject);
-				lastActivity = Time.time;
 			}
-			Movement movement = go.GetComponent<Movement> ();
-			lastActivity = Mathf.Max (lastActivity, movement.lastActivity);
-			bool active = Time.time - lastActivity < activityThreshold;
+			LastActivity lastActivity = go.GetComponent<LastActivity> ();
+			bool active = Time.time - lastActivity.lastActivity < activityThreshold;
 			activePlayers.Add (active);
 			if (active) {
 				++totalActive;
