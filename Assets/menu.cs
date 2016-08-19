@@ -5,22 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour {
 
+    void loadGame()
+    {
+        SceneManager.LoadScene("Scenes/Game");
+    }
+
     void Start()
     {
     }
 
     void Update()
     {
-        if (
-            Input.GetButtonUp("Player1_Funk") || 
+        if (Input.GetButtonUp("Player1_Funk") || 
             Input.GetButtonUp("Player2_Funk") || 
             Input.GetButtonUp("Player3_Funk") || 
-            Input.GetButtonUp("Player4_Funk") 
-            )
+            Input.GetButtonUp("Player4_Funk"))
         {
             loadmain();
         }
+
+        if (Input.GetButtonUp("Space"))
+        {
+            loadGame();
+        }
     }
+
 
     public void loadmain()
     {
@@ -32,7 +41,7 @@ public class menu : MonoBehaviour {
             //Reverse order to avoid returns in each line
             if (image.sprite.name == "05" || image.sprite.name == "finish" )
             {
-                SceneManager.LoadScene("Scenes/Game");
+                loadGame();
             }
             if (image.sprite.name == "04-04")
             {
