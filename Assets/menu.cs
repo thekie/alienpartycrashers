@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +15,7 @@ public class menu : MonoBehaviour {
             //Reverse order to avoid returns in each line
             if (image.sprite.name == "05" || image.sprite.name == "finish" )
             {
-                SceneManager.LoadScene("Game");
+                SceneManager.LoadScene("Scenes/Game");
             }
             if (image.sprite.name == "04-04")
             {
