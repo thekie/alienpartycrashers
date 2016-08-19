@@ -24,11 +24,6 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 0.016666668
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -41,13 +36,8 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.016666668
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -59.999996
+        outSlope: -59.999996
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -61,13 +51,8 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.016666668
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -59.999996
+        outSlope: -59.999996
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -96,13 +81,8 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 2.51
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.016666668
-        value: 2.51
-        inSlope: 0
-        outSlope: 0
+        inSlope: 329.39996
+        outSlope: 329.39996
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -126,18 +106,6 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 0
-      attribute: 1
-      script: {fileID: 0}
-      classID: 23
-      customType: 21
-      isPPtrCurve: 1
-    - path: 1106452668
-      attribute: 2526845255
-      script: {fileID: 0}
-      classID: 108
-      customType: 25
-      isPPtrCurve: 0
     - path: 1106452668
       attribute: 4215373228
       script: {fileID: 0}
@@ -151,13 +119,25 @@ AnimationClip:
       customType: 25
       isPPtrCurve: 0
     - path: 1106452668
-      attribute: 304273561
+      attribute: 898800009
+      script: {fileID: 0}
+      classID: 108
+      customType: 25
+      isPPtrCurve: 0
+    - path: 0
+      attribute: 1
+      script: {fileID: 0}
+      classID: 23
+      customType: 21
+      isPPtrCurve: 1
+    - path: 1106452668
+      attribute: 2526845255
       script: {fileID: 0}
       classID: 108
       customType: 25
       isPPtrCurve: 0
     - path: 1106452668
-      attribute: 898800009
+      attribute: 304273561
       script: {fileID: 0}
       classID: 108
       customType: 25
@@ -193,11 +173,6 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 0.016666668
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -210,13 +185,8 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.016666668
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -59.999996
+        outSlope: -59.999996
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -230,13 +200,8 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.016666668
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -59.999996
+        outSlope: -59.999996
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -265,13 +230,8 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 2.51
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 0.016666668
-        value: 2.51
-        inSlope: 0
-        outSlope: 0
+        inSlope: 329.39996
+        outSlope: 329.39996
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
