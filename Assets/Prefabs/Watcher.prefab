@@ -305,8 +305,8 @@ MonoBehaviour:
   moveSpeed: 4
   searchRadius: 3
   attackDelay: 1
-  explosionForce: 5000
-  explosionRadius: 7
+  explosionForce: 10000
+  explosionRadius: 20
   funkManager: {fileID: 0}
   animationCurve:
     serializedVersion: 2
