@@ -330,6 +330,7 @@ GameObject:
   - 222: {fileID: 1276524638}
   - 114: {fileID: 1276524637}
   - 114: {fileID: 1276524636}
+  - 111: {fileID: 1276524639}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -441,6 +442,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1276524634}
+--- !u!111 &1276524639
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1276524634}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cf541d36ef07b714f8abe57ee3d2a285, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: cf541d36ef07b714f8abe57ee3d2a285, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1624235262
 GameObject:
   m_ObjectHideFlags: 0
