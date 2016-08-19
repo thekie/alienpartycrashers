@@ -2,7 +2,7 @@
 
 Tentacle Party Crashers by team looking for Stefanie
 is a game jam game from #IGJAM made in 48h
-https://www.igjam.eu/jams/gamescom-2016/173/ <https://www.igjam.eu/jams/gamescom-2016/173/>
+https://www.igjam.eu/jams/gamescom-2016/173/
 
 # Description
 TENTACLE PARTY CRASHERS is a local co-op stealth dancing game where you play HUMANS who snuck into an ALIEN party who have a human themed masquerade ball to crash it with your FUNK. But beware the OVERSEER who will destroy all your funk - try to BLEND IN and remain undetected. Funk TOGETHER to FUNK BETTER until you've reached MAXIMUM FUNK and infect the alien race with your FUNK.
