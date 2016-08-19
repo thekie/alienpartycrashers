@@ -6,8 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/menu.unity
-  - enabled: 1
-    path: Assets/finish.unity
+    path: Assets/Scenes/menu.unity
   - enabled: 1
     path: Assets/Scenes/Game.unity
+  - enabled: 0
+    path: Assets/PartyPooper.unity
+  - enabled: 1
+    path: Assets/finish.unity

@@ -22,9 +22,6 @@ public class FunkyManager : MonoBehaviour {
 		funkMeter -= Mathf.Max (Time.deltaTime * decreaseCurve.Evaluate (funkMeter), 0);
 		funkMeter = Mathf.Max (funkMeter, 0);
 
-		Debug.Log ("Funk Meter: " + funkMeter);
-		Debug.Log ("Funk Decrement: " + decreaseCurve.Evaluate (funkMeter));
-
 		List<GameObject> funkyPlayers = new List<GameObject> ();
 
 		foreach (GameObject go in players) {
@@ -50,7 +47,6 @@ public class FunkyManager : MonoBehaviour {
 		float funkIncrement = 100;
 		if (numDistances > 0) {
 			float avgDistance = distance / numDistances;
-			Debug.Log ("Average Dist: " + avgDistance);
 			funkIncrement += (maxDistance - avgDistance) * funkyPlayers.Count;
 		}
 
@@ -59,9 +55,6 @@ public class FunkyManager : MonoBehaviour {
 		if (funkMeter >= maxFunk) {
 			SceneManager.LoadScene ("Game");
 		}
-			
-		Debug.Log ("Normalized Funk: " + funkMeter/maxFunk);
-		Debug.Log ("Funk Increment: " + funkIncrement);
 	}
 
 	void OnGUI() {

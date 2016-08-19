@@ -25,13 +25,15 @@ public class Watcher : MonoBehaviour {
 
 	WatcherAnimator watcherAnimator;
 
+	GameObject currentHomingTarget;
+
 	List<FunkyControl> funkyPlayers = new List<FunkyControl>();
 
 	void Start() {
 		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Player");
 
 		watcherAnimator = GetComponent<WatcherAnimator> ();
-		SwitchToSearching ();
+		StartCoroutine(Searching());
 		foreach (GameObject go in gameObjects) {
 			FunkyControl player = go.GetComponent<FunkyControl> ();
 			if (player != null) {
@@ -40,12 +42,30 @@ public class Watcher : MonoBehaviour {
 		}
 	}
 
-	void SwitchToAlarmed() {
+	void SwitchToAlarmed(GameObject target) {
+		if (currentState == State.Alarmed && target == currentHomingTarget) {
+			return;
+		}
+			
+		if (currentHomingTarget && currentHomingTarget.GetComponent<FunkyControl> ().isFunky) {
+			Debug.Log ("Old target is still funky");
+			return;
+		}
+
+		Debug.Log ("SwitchToAlarmed");
+		currentState = State.Alarmed;
 		StopAllCoroutines ();
-		watcherAnimator.DoAlarmed ();
+		StartCoroutine (Homing (target));
 	}
 
 	void SwitchToAttack(GameObject target) {
+		if (currentState == State.Attack) {
+			return;
+		}
+
+		currentHomingTarget = null;
+
+		Debug.Log ("SwitchToAttack");
 		Player player = target.GetComponent<Player> ();
 		if (player != null) {
 			currentState = State.Attack;
@@ -56,6 +76,13 @@ public class Watcher : MonoBehaviour {
 	}
 
 	void SwitchToSearching() {
+		if (currentState == State.Searching) {
+			return;
+		}
+
+		currentHomingTarget = null;
+
+		Debug.Log ("SwitchToSearching");
 		currentState = State.Searching;
 		StopAllCoroutines ();
 		watcherAnimator.DoNormal ();
@@ -73,16 +100,28 @@ public class Watcher : MonoBehaviour {
 		}
 	}
 
+	IEnumerator Homing(GameObject gameObject) {
+		currentHomingTarget = gameObject;
+		Vector3 targetPosition = gameObject.transform.position;
+		targetPosition.y = transform.position.y;
+		yield return MoveToPosition (targetPosition);
+		currentHomingTarget = null;
+		SwitchToSearching ();
+	}
+
 	IEnumerator Attacking(GameObject gameObject) {
 		while (currentState == State.Attack) {
-			yield return new WaitForSeconds (attackDelay);
-			if (IsInSearchRadius(gameObject)) {
-				funkManager.funkMeter = 0.0f;
-				watcherAnimator.DoAttackMove ();
-				yield return new WaitForSeconds (watcherAnimator.attackDuration*0.05f);
+			Vector3 homingPosition = gameObject.transform.position;
+			homingPosition.y = transform.position.y;
+			yield return MoveToPosition (homingPosition);
 
+			yield return new WaitForSeconds (attackDelay);
+
+			if (IsInSearchRadius(gameObject)) {
+				watcherAnimator.DoAttackMove ();
 				Vector3 attackPosition = transform.position;
 				attackPosition.y = 0;
+				yield return new WaitForSeconds (watcherAnimator.attackDuration*0.05f);
 				AddExplosionForceForAllPlayersAtPosition (attackPosition);
 				yield return new WaitForSeconds (watcherAnimator.attackDuration);
 				SwitchToSearching ();
@@ -114,9 +153,15 @@ public class Watcher : MonoBehaviour {
 
 	void Update() {
 		foreach (FunkyControl funkyControl in funkyPlayers) {
-			if (funkyControl.isFunky && IsInSearchRadius(funkyControl.gameObject)) {
-				SwitchToAttack (funkyControl.gameObject);
-				break;
+			if (funkyControl.isFunky) {
+				if (IsInSearchRadius (funkyControl.gameObject)) {
+					SwitchToAttack (funkyControl.gameObject);
+					break;
+				} else {
+					if (currentState != State.Attack) {
+						SwitchToAlarmed (funkyControl.gameObject);
+					}
+				}
 			}
 		}
 	}

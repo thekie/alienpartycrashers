@@ -11,19 +11,20 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1000012935600070}
   m_IsPrefabParent: 1
---- !u!1 &1000011659594232
+--- !u!1 &1000010764652460
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000013122816212}
-  - 33: {fileID: 33000011259881336}
-  - 23: {fileID: 23000012290254712}
-  - 95: {fileID: 95000010763037470}
+  - 4: {fileID: 4000014283901876}
+  - 33: {fileID: 33000010782497680}
+  - 23: {fileID: 23000012732812386}
+  - 95: {fileID: 95000013306307492}
+  - 114: {fileID: 114000011969535230}
   m_Layer: 0
-  m_Name: ufo
+  m_Name: UFOprefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,20 +92,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013680645214}
-  m_RootOrder: 0
---- !u!4 &4000013122816212
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011659594232}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.01, z: 0}
-  m_LocalScale: {x: 0.69181865, y: 0.6918189, z: 0.6918189}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 4000013680645214}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &4000013227023746
 Transform:
   m_ObjectHideFlags: 1
@@ -112,12 +100,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012254527606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6, z: 0}
+  m_LocalPosition: {x: 0, y: -8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000013680645214}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &4000013680645214
 Transform:
   m_ObjectHideFlags: 1
@@ -125,21 +113,34 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012935600070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 4000014283901876}
   - {fileID: 4000012270399526}
   - {fileID: 4000013227023746}
-  - {fileID: 4000013122816212}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &23000012290254712
+--- !u!4 &4000014283901876
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010764652460}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 252.86879, y: 252.86873, z: 99.99997}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000013680645214}
+  m_RootOrder: 0
+--- !u!23 &23000012732812386
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011659594232}
+  m_GameObject: {fileID: 1000010764652460}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -147,7 +148,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9b4f53583c84a4c0692d35f02772dc51, type: 2}
+  - {fileID: 2100000, guid: 6bcb63c58232a4d82af01af7658f16d6, type: 2}
+  - {fileID: 2100000, guid: 3ad827399d74d453ebbee26067d3ce4b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -163,13 +165,13 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &33000011259881336
+--- !u!33 &33000010782497680
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011659594232}
-  m_Mesh: {fileID: 4300000, guid: 023158c336a4b43a18b94955090faa82, type: 3}
+  m_GameObject: {fileID: 1000010764652460}
+  m_Mesh: {fileID: 4300000, guid: 8c17cf6b80d12462b9a34e5d54b3c8ed, type: 3}
 --- !u!54 &54000013056701976
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -185,16 +187,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!95 &95000010763037470
+--- !u!95 &95000013306307492
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011659594232}
+  m_GameObject: {fileID: 1000010764652460}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 023158c336a4b43a18b94955090faa82, type: 3}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 8c17cf6b80d12462b9a34e5d54b3c8ed, type: 3}
+  m_Controller: {fileID: 9100000, guid: a9a835d138b0841f39e2a369aaf72405, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -212,9 +214,9 @@ Light:
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3.3
-  m_Range: 10
-  m_SpotAngle: 95
+  m_Intensity: 2.51
+  m_Range: 20
+  m_SpotAngle: 70
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -247,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230a5af6cb6a644f8b008fea7f0f63de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyMesh: {fileID: 23000012290254712}
+  bodyMesh: {fileID: 0}
   attackAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -276,6 +278,18 @@ MonoBehaviour:
     m_RotationOrder: 0
   attackDuration: 2
   alertColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &114000011969535230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010764652460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2722333a3064da7abfbd09f713dd2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ufoAnim: {fileID: 95000013306307492}
 --- !u!114 &114000013668845060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,8 +305,8 @@ MonoBehaviour:
   moveSpeed: 4
   searchRadius: 3
   attackDelay: 1
-  explosionForce: 5000
-  explosionRadius: 7
+  explosionForce: 10000
+  explosionRadius: 20
   funkManager: {fileID: 0}
   animationCurve:
     serializedVersion: 2
