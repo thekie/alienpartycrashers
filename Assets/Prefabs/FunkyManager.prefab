@@ -70,5 +70,12 @@ MonoBehaviour:
     m_RotationOrder: 0
   maxDistance: 30
   maxFunk: 900
-  emptyBar: {fileID: 10305, guid: 0000000000000000f000000000000000, type: 0}
-  fullBar: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+  activityThreshold: 15
+  fillerBar: {fileID: 0}
+  activityIndicators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  activityColor: {r: 0.44117647, g: 0.19463669, b: 0.3221573, a: 1}
+  endOfGame: {fileID: 0}

@@ -16,6 +16,7 @@ public class FunkyManager : MonoBehaviour {
 	public Image fillerBar;
 	public Image[] activityIndicators;
 	public Color activityColor = Color.blue;
+	public Image endOfGame;
 
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
@@ -76,7 +77,8 @@ public class FunkyManager : MonoBehaviour {
 		funkMeter += Time.deltaTime * funkIncrement;
 
 		if (funkMeter >= maxFunk) {
-			SceneManager.LoadScene ("Game");
+			endOfGame.gameObject.SetActive (true);
+			//SceneManager.LoadScene ("Game");
 		}
 	}
 
