@@ -17,9 +17,13 @@ public class FunkyManager : MonoBehaviour {
 	public Image[] activityIndicators;
 	public Color activityColor = Color.blue;
 	public Image endOfGame;
+	public Text timerText;
+	public Text finalText;
+	private float levelStart;
 
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
+		levelStart = Time.time;
 	}
 		
 	void Update () {
@@ -28,6 +32,8 @@ public class FunkyManager : MonoBehaviour {
 				SceneManager.LoadScene ("Game");
 			}
 		} else {
+			int seconds = Mathf.FloorToInt(Time.time - levelStart);
+			timerText.text = string.Format ("{0:00}:{1:00}:{2:00}", seconds / 3600, (seconds % 3600) / 60, seconds % 60);
 			funkMeter -= Mathf.Max (Time.deltaTime * 1.9f / 3 * decreaseCurve.Evaluate (funkMeter), 0);
 			funkMeter = Mathf.Max (funkMeter, 0);
 
@@ -91,6 +97,9 @@ public class FunkyManager : MonoBehaviour {
 
 			if (funkMeter >= maxFunk) {
 				endOfGame.gameObject.SetActive (true);
+				finalText.text = timerText.text;
+				finalText.gameObject.SetActive (true);
+				timerText.gameObject.SetActive (false);
 			}
 		}
 	}
