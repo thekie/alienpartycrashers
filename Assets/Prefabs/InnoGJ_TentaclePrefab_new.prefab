@@ -1126,6 +1126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95000013523473532}
   funkCooldownTime: 0.5
+  pointLight: {fileID: 0}
   playerDefaultColor: {r: 0.627451, g: 0.627451, b: 0.627451, a: 1}
   maskDefaultColor: {r: 0, g: 0, b: 0, a: 0}
   rainbowGradient:

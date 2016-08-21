@@ -35,7 +35,7 @@ public class FunkyManager : MonoBehaviour {
 		} else {
 			int seconds = Mathf.FloorToInt(Time.time - levelStart);
 			timerText.text = string.Format ("{0:00}:{1:00}:{2:00}", seconds / 3600, (seconds % 3600) / 60, seconds % 60);
-			funkMeter -= Mathf.Max (Time.deltaTime * 1.9f / 3 * decreaseCurve.Evaluate (funkMeter), 0);
+			funkMeter -= Mathf.Max (Time.deltaTime * 1.3f / 3 * decreaseCurve.Evaluate (funkMeter), 0);
 			funkMeter = Mathf.Max (funkMeter, 0);
 
 			List<GameObject> funkyPlayers = new List<GameObject> ();
